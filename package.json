@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./src/index.js"
+
   },
   "keywords": [],
   "author": "",
@@ -21,8 +21,11 @@
     "sequelize": "^6.28.0",
     "swagger-jsdoc": "^6.2.5",
     "swagger-ui-express": "^4.6.0"
+
+    
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
   }
+ 
 }
