@@ -3,7 +3,7 @@ import { sequelize } from "../database/database.js";
 import { Cabecera } from "./Cabecera.js";
 
 export const CuentaBancaria = sequelize.define(
-  "cuentasBancarias",
+  "cuentasBacarias",
   {
     idCB: {
       type: DataTypes.STRING,

@@ -16,9 +16,6 @@ export const Detalle = sequelize.define('detalles', {
     saldoFac: {
         type: DataTypes.DOUBLE,
     },
-    TotalFac: {
-        type: DataTypes.DOUBLE,
-    }
     },
     {
         timestamps: false
