@@ -1,4 +1,5 @@
 import { CuentaBancaria } from "../models/CuentaBancaria.js";
+import { createAuditoria } from './auditoria.controller.js';
 import { sequelize } from "../database/database.js"
 export async function createCuentaB(req, res) {
   try {
@@ -10,6 +11,7 @@ export async function createCuentaB(req, res) {
       descripcionCB,
       estadoCB,
     });
+    await createAuditoria('crear', 'Cuenta Bancaria', 'Crear Cuenta Bancaria', 'Se ha creado una nueva cuenta bancaria');
     res.json(newCuenta);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -80,6 +82,7 @@ export async function deleteCuentaB(req, res) {
         idCB: id,
       },
     });
+    await createAuditoria('eliminar', 'Cuenta Bancaria', 'Eliminar Cuenta Bancaria', 'Se ha eliminado una cuenta bancaria');
     return res.sendStatus(204);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -96,6 +99,7 @@ export const updateCuentaB = async (req, res) => {
     cuentaB.descripcionCB = descripcionCB;
     cuentaB.estadoCB = estadoCB;
     await cuentaB.save();
+    await createAuditoria('editar', 'Cuenta Bancaria', 'Editar Cuenta Bancaria', 'Se ha editado una cuenta bancaria');
     res.json(cuentaB);
     //onsole.log({ $1 });
   } catch (error) {
